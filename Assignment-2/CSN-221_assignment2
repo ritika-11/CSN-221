@@ -1,0 +1,40 @@
+SimpleRisc assembly program
+
+{
+	move cnt 0
+	mov x 1
+
+	.loop:
+		mov y x
+		mov z x
+		.loop1:
+			.loop2:
+				mul r1 y y
+				mul r2 r1 y
+				mul r3 z z
+				mul r4 r3 z
+				mov r5 0
+				add r5 r2 r4
+				cmp r5 x
+				beq .countIncrease
+				sub z z 1
+				cmp z 0
+				bgt .loop2
+			sub y y 0
+			bgt .loop1
+		cmp cnt 2
+		bgt .exit
+		add x x 1
+		.cntIncrease:
+			add cnt cnt 1
+		.exit:
+			exit
+		mov cnt 0
+}
+
+
+
+
+	Submitted by:  RITIKA GARG
+					18114069
+					CSE(O3)
